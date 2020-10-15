@@ -1,0 +1,15 @@
+<form>
+  <input
+    type="text"
+    [(ngModel)]="color"
+    name="colorInput"
+    id="colorInput"
+    required
+    validColorValidator
+    #colorInput="ngModel"
+  />
+  <div>{{ color }}</div>
+  <div *ngIf="colorInput.invalid && (colorInput.dirty || colorInput.touched)">
+    Bitte Farbe angeben
+  </div>
+</form>

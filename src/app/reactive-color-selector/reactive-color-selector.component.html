@@ -1,0 +1,15 @@
+<form>
+  <button (click)="countControl.setValue(countControl.value + 1)">+</button>
+  <div *ngFor="let colorControl of colorControls">
+    <input type="text" [formControl]="colorControl" />
+    <div>{{ colorControl.value }}</div>
+    <div
+      *ngIf="
+        colorControl.invalid && (colorControl.dirty || colorControl.touched)
+      "
+    >
+      <div *ngIf="colorControl.errors.required">Bitte Farbe angeben</div>
+      <div *ngIf="colorControl.errors.forbiddenColor">Farbe nicht bekannt</div>
+    </div>
+  </div>
+</form>

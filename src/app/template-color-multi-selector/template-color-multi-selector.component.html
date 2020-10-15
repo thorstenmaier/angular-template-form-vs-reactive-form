@@ -1,0 +1,16 @@
+<form>
+  <div *ngFor="let color of colors; let i = index">
+    <input
+      type="text"
+      [(ngModel)]="colors[i]"
+      name="colorInput{{ i }}"
+      id="colorInput"
+      required
+      #colorInput="ngModel"
+    />
+    <div>{{ color }}</div>
+    <div *ngIf="colorInput.invalid && (colorInput.dirty || colorInput.touched)">
+      Bitte Farbe angeben
+    </div>
+  </div>
+</form>
